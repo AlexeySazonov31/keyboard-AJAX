@@ -3,7 +3,8 @@ let tds = document.querySelectorAll('td');
 let textarea = document.querySelector('textarea');
 let capsLock = document.querySelector('#capsLock');
 let parent = document.querySelector('#parent');
-let button = document.querySelector('#clear');
+let clear = document.querySelector('#clear');
+let copy = document.querySelector('#copy');
 
 for( let td of tds ){
     if( td.dataset.res !== '!' ){
@@ -80,8 +81,13 @@ capsLock.addEventListener('click',function(){
     }
 });
 
-button.addEventListener('click',function(){
+clear.addEventListener('click',function(){
     textarea.value = '';        
+})
+
+copy.addEventListener('click', () => {
+    textarea.select();    
+    document.execCommand("copy");
 })
 
 }
