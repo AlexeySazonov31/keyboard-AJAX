@@ -6,12 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            background-color: rgb(145, 145, 145);
+            display: flex;
+            justify-content: center;
+        }
+        textarea{
+            padding: 15px;
+            background-color: rgb(219, 219, 219);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            border-radius: 4px;
+
+        }
         table{
+            margin-left: auto;
+            margin-right: auto;
             border-collapse: separate;
         } td{
             border: 1px solid black;
-            padding: 7px 9px 7px 9px;
+            padding: 7px 10px 7px 10px;
             text-align: center;
+            border-radius: 2px;
+            box-shadow: 4px 4px 30px 20px rgba(0, 0, 0, 0.2);;
+            color: #fff;
+            background-color: rgb(44, 44, 44);
+
+            /*запрет копирования*/
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;   
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+            -khtml-user-select: none;
         }
         .caps{
             padding: 10px;
@@ -19,10 +50,32 @@
             padding-bottom: 0;
             text-align: center;
         }
+        .orange{
+            color:darkgoldenrod;
+        }
+        .yellow{
+            color: yellow;
+        }
+        .active{
+            color: rgb(126, 139, 255);
+        }
+        button{
+            position: relative;
+            left: 350px;
+            bottom: 13px;
+            background-color: rgb(219, 219, 219);
+            border-radius: 5px;
+            padding: 5px;
+            color:rgb(44, 44, 44);
+            width: auto;
+        }
         
     </style>
 </head>
 <body>
+    <div id="parent">
+    <textarea cols="40" rows="5" placeholder="Набранный текст"></textarea>
+    <button id="clear">очистить</button>
     <table>
         <tbody>
             <tr>
@@ -39,10 +92,10 @@
                 <td>0</td>
                 <td>-</td>
                 <td>=</td>
-                <td>⌫</td>
+                <td data-res="!" data-value="Backspace">⌫</td>
             </tr>
             <tr>
-                <td>Tab</td>
+                <td data-res="!" class="orange">Tab</td>
                 <td>й</td>
                 <td>ц</td>
                 <td>у</td>
@@ -58,7 +111,7 @@
                 <td>\</td>
             </tr>
             <tr>
-                <td class="caps">caps lock</td>
+                <td class="caps capsLock" data-res="!" id="capsLock">caps lock</td>
                 <td>ф</td>
                 <td>ы</td>
                 <td>в</td>
@@ -70,10 +123,10 @@
                 <td>д</td>
                 <td>ж</td>
                 <td>э</td>
-                <td colspan="2">↵</td>
+                <td colspan="2" data-res="!" class="orange">↵</td>
             </tr>
             <tr>
-                <td colspan="2">↑</td>
+                <td colspan="2" data-res="!" data-value="eng" class="yellow">Eng</td>
                 <td>я</td>
                 <td>ч</td>
                 <td>с</td>
@@ -84,24 +137,26 @@
                 <td>б</td>
                 <td>ю</td>
                 <td>.</td>
-                <td>↑</td>
+                <td data-res="!" class="orange">↑</td>
                 <td>,</td>
-
             </tr>
             <tr>
-                <td class="caps">ctrl</td>
-                <td>fn</td>
-                <td>⊞</td>
-                <td>alt</td>
-                <td colspan="5"></td>
-                <td>ctrl</td>
+                <td  data-res="!" class="orange">ctrl</td>
+                <td data-res="!" class="orange">fn</td>
+                <td data-res="!" class="orange">⊞</td>
+                <td data-res="!" class="orange">alt</td>
+                <td colspan="5"> </td>
+                <td data-res="!" class="orange">ctrl</td>
                 <td>!</td>
-                <td>←</td>
-                <td>↓</td>
-                <td>→</td>
+                <td data-res="!" class="orange">←</td>
+                <td data-res="!" class="orange">↓</td>
+                <td data-res="!" class="orange">→</td>
             </tr>
         </tbody>
     </table>
-    <script></script>
+</div>
+    <script src="index.js"></script>
+
+
 </body>
 </html>
